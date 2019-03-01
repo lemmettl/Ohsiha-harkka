@@ -1,0 +1,19 @@
+{% extends 'base.html'}
+
+{% block mappage %}
+<h2>Map</h2>
+<div id='mappage'></div>
+<script>
+    function initMap() {
+        var ulurlu = {lat:-25.344, lng: 131.036};   // paikan sijainti
+        var map = new google.maps.Map(              // laitetaan kartta sijoittumaan niin, että paikka keskiössä
+            document.getElementById('map'), {zoom: 4, center: uluru});
+        var marker = new google.maps.marker({position: uluru, map: map});       // lisätään marker, ja sijoitetaan kartta niin, että marker keskiössä
+    }
+</script>
+
+<!-- ladataan API tietystä URL:sta käyttäen API-key:tä -->
+<script async defer   
+src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCt0GvWNOEIBMevBFD3EEO3lqqXZhTO9fc&callback=initMap'>
+</script>
+{% blockend %}
