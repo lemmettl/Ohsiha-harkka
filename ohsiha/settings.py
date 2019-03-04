@@ -122,5 +122,5 @@ STATIC_URL = '/static/'
 
 #lisätään sisään- ja uloskirjautumisen linkit
 
-LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
