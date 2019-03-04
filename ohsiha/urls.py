@@ -20,6 +20,7 @@ from django.conf.urls import url
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('applikaatio.urls')),
-    path('accounts/', include('accounts.urls')),   
+    path('accounts/', include('accounts.urls')),            #url sign up:ia varten, tämä ennen toista accountsia, jotta django lukee ensin tämän
+    path('accounts/', include('django.contrib.auth.urls')), 
 ]
 
