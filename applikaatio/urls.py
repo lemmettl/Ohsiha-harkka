@@ -6,5 +6,5 @@ app_name = 'koirapuistot'
 
 urlpatterns =[
     path('', views.HomePageView, name='kotisivu'),
-    url('SignUp/', views.signup, name='signup'),
+    url(r'^signup/$', views.signup, name='signup'),
 ]
