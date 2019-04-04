@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="css/style.css">
+    <tile>Arvostelut</tile>
+</head>
+
+<body>
+    <h1>Lisää uusi/päivitä arvostelu</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{form}}
+        <button type="submit">Tallenna</button>
+    </form>
+
+    {% if product %}
+        <a href="{% url 'delete_arvostelu' arvostelu.id%}">Poista</a>
+    {% endif %}
+</body>
+</html>

@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'applikaatio',
-    'accounts.apps.AccountsConfig'
+    'accounts.apps.AccountsConfig',
+    'arvosteluapp'
 ]
 
 MIDDLEWARE = [

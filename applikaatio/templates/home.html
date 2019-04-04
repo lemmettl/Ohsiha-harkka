@@ -4,10 +4,62 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-  Hi {{ user.username }}!
-  <p><a href="{% url 'logout' %}">logout</a></p>
-{% else %}
-  <p>You are not logged in</p>
-  <a href="{% url 'login' %}">login</a>
+  <h1>Pääsivu</h1>
+  Hei {{ user.username }}!
+
+    <head>
+      <title>Simple Map</title>
+      <meta name="viewport" content="initial-scale=1.0">
+      <meta charset="utf-8">
+      <style>
+        /* Always set the map height explicitly to define the size of the div
+         * element that contains the map. */
+        #map {
+          height: 100%;
+        }
+        /* Optional: Makes the sample page fill the window. */
+        html, body {
+          height: 100%;
+          margin: 0;
+          padding: 0;
+        }
+      </style>
+    </head>
+  
+  <body>
+  <style type="text/css"> 
+      html { height: 1000px }
+      body { height: 1000px; margin: 0px; padding: 0px }
+      #map_canvas { height: 1000px }
+    </style>
+        <h3>Map</h3>
+        <div id="map"></div>
+         <script>
+     function initMap() {
+       var uluru = {lat: -25.344, lng: 131.036};
+       var map = new google.maps.Map(
+           document.getElementById('map'), {zoom: 4, center: uluru});
+       var marker = new google.maps.Marker({position: uluru, map: map});
+     }
+         </script>
+         <script async defer
+         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrMDCiwxnkktvnIwQDB1nY6XULUeT8ocg&callback=initMap">
+         </script>
+  
+  <ul>
+      <p>Katso arvosteluja: <a href="{% url 'list_arvostelut' %}">Arvostelut</a></p>
+    </ul>
+  
+    <ul>
+      <p>Lisää uusi arvostelu: <a href="{% url 'create_arvostelu' %}">Uusi arvostelu</a></p>
+    </ul>
+  
+    <p><a href="{% url 'logout' %}">Kirjaudu ulos</a></p>
+  {% else %}
+    <p>You are not logged in</p>
+    <a href="{% url 'login' %}">Kirjaudu sisään</a>
+    <p> or </p>
+    <a href="{% url 'signup' %}">Rekisteröidy</a>
+  
 {% endif %}
 {% endblock %}

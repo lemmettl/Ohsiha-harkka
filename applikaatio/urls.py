@@ -8,4 +8,5 @@ app_name = 'koirapuistot'
 urlpatterns = [
     path('', views.HomePageView, name='kotisivu'),
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
+
 ]

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="css/style.css">
+    <tile>Arvostelut</tile>
+</head>
+
+<body>
+    <ul>
+        <h1>Arvostelut</h1>
+   
+        {% for arvostelu in arvostelut %}
+            <a href="{% url 'update_arvostelu' arvostelu.id %}">
+                <li> {{arvostelu.otsikko }}</li>
+            </a>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'create_arvostelu' %}">Uusi arvostelu</a>
+
+    
+</body>   
+</html>
